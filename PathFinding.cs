@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PathFinding : MonoBehaviour
+public class Target : MonoBehaviour
 {
     private Transform _target;
     private Transform[] _targetPoints;
