@@ -2,18 +2,10 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private Transform _target;
-    private Transform[] _targetPoints;
-    private float _speed;
-    private int _numberPoint;
+    [SerializeField] private Transform[] _targetPoints;
+    [SerializeField] private float _speed;
 
-    private void Start()
-    {
-        _targetPoints = new Transform[_target.childCount];
-
-        for (int i = 0; i < _target.childCount; i++)
-            _targetPoints[i] = _target.GetChild(i).GetComponent<Transform>();
-    }
+    private int _numberPoint = 0;
 
     private void Update()
     {
