@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class InstantiateBulletsShooting : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    [SerializeField] GameObject _bulletPrefab;
+    [SerializeField] Bullet _bullet;
     [SerializeField] private float _delay;
     [SerializeField] private float _speed;
 
@@ -23,7 +23,7 @@ public class InstantiateBulletsShooting : MonoBehaviour
         while (isWork)
         {
             Vector3 _direction = (_targetPosition.position - transform.position).normalized;
-            GameObject newBullet = Instantiate(_bulletPrefab, transform.position + _direction, Quaternion.identity);
+            Bullet newBullet = Instantiate(_bullet, transform.position + _direction, Quaternion.identity);
 
             newBullet.GetComponent<Rigidbody>().transform.up = _direction;
             newBullet.GetComponent<Rigidbody>().velocity = _direction * _speed * Time.deltaTime;
